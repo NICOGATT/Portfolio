@@ -1,0 +1,93 @@
+.contactMe {
+    padding: 0.5rem;
+    margin-top: 1%;
+}
+
+a{
+    color: oklch(87.9% 0.169 91.605);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.hero {
+    border: 2px solid white;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.typing-title {
+    display: inline-block;
+    width: 18ch;
+    max-width: max-content;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 6px;
+    border-right: 3px solid currentColor;
+    line-height: 1.15;
+    animation: typing 2.2s steps(18) both, blink 0.75s step-end infinite;
+}
+.linkContact {
+    color: white;
+}
+
+.projects-header {
+    max-width: 760px;
+    margin-top: 1.5rem;
+}
+
+.projects-eyebrow {
+    color: #67e8f9;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+    gap: 1rem;
+}
+
+.projects-state {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    background: rgba(15, 23, 42, 0.7);
+    color: #94a3b8;
+    padding: 1rem;
+}
+
+.projects-error {
+    border-color: rgba(252, 165, 165, 0.25);
+    background: rgba(239, 68, 68, 0.1);
+    color: #fecaca;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 1.5rem 1rem;
+        text-align: center;
+    }
+
+    .biografia {
+        display: grid;
+        justify-items: center;
+    }
+
+    .typing-title {
+        width: 18ch;
+        max-width: 100%;
+        font-size: 2rem;
+    }
+}

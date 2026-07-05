@@ -1,0 +1,348 @@
+@import "tailwindcss";
+
+.App {
+  display: flex;
+  min-height: 100svh;
+  text-align: left;
+}
+
+.page-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  margin-left: 240px;
+}
+
+main {
+  flex: 1;
+  padding: 48px;
+}
+
+
+footer {
+  border-top: 1px solid white;
+  padding: 24px 48px;
+}
+
+.login-page {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  padding: 24px;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(170, 59, 255, 0.2), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.22), transparent 30%),
+    var(--bg);
+}
+
+.login-panel {
+  width: min(100%, 980px);
+  min-height: auto;
+}
+
+.back-home {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.auth-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+  gap: 0;
+  overflow: hidden;
+  min-height: 620px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+}
+
+.auth-background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(170, 59, 255, 0.78), rgba(37, 99, 235, 0.78)),
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.28), transparent 26%);
+  transition: transform 0.55s ease, filter 0.55s ease;
+}
+
+.login-panel.is-signup .auth-background {
+  transform: translateX(42%);
+  filter: hue-rotate(35deg);
+}
+
+.auth-orbit {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  animation: float-orbit 8s ease-in-out infinite;
+}
+
+.auth-orbit-one {
+  width: 220px;
+  height: 220px;
+  left: 8%;
+  top: 12%;
+}
+
+.auth-orbit-two {
+  width: 320px;
+  height: 320px;
+  right: 8%;
+  bottom: -14%;
+  animation-delay: -3s;
+}
+
+.auth-visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+  padding: 48px;
+  color: white;
+}
+
+.auth-visual p,
+.auth-visual span {
+  max-width: 360px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.auth-visual h1 {
+  max-width: 420px;
+  margin: 14px 0 18px;
+  color: white;
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  padding: 40px;
+  background: var(--bg);
+  transition: transform 0.45s ease;
+}
+
+.login-panel.is-signup .login-card {
+  transform: translateX(-6px);
+}
+
+.auth-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 32px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--social-bg);
+}
+
+.auth-switch button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.auth-switch button.active {
+  color: white;
+  background: var(--accent);
+}
+
+.login-eyebrow,
+.login-copy,
+.signup-copy {
+  color: var(--text);
+}
+
+.login-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.login-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--text-h);
+}
+
+.login-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--text-h);
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.login-form button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: white;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+.login-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.login-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 0.95rem;
+}
+
+.signup-copy {
+  margin-top: 18px;
+}
+
+.signup-copy button {
+  border: 0;
+  padding: 0;
+  color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.dashboard-page {
+  display: grid;
+  min-height: 100svh;
+  padding: 32px;
+  background: var(--bg);
+}
+
+.dashboard-panel {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.dashboard-panel h1,
+.dashboard-panel h2,
+.dashboard-panel p {
+  color: var(--text);
+}
+
+.dashboard-content {
+  margin-top: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.dashboard-list {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard-list li {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr) auto;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--text);
+}
+
+.dashboard-list small {
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: white;
+  background: var(--accent);
+}
+
+@keyframes float-orbit {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(16px, -18px, 0) scale(1.04);
+  }
+}
+
+@media (max-width: 1024px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .page-content {
+    margin-left: 0;
+  }
+
+  main,
+  footer {
+    padding-inline: 24px;
+  }
+
+  main {
+    padding-top: 24px;
+  }
+
+  section {
+    min-height: calc(100svh - 100px);
+  }
+
+  .login-page {
+    padding: 18px;
+  }
+
+  .auth-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .auth-background {
+    min-height: 220px;
+  }
+
+  .login-panel.is-signup .auth-background {
+    transform: translateY(18%);
+  }
+
+  .auth-visual {
+    min-height: 240px;
+    padding: 32px;
+  }
+
+  .login-card {
+    padding: 28px;
+  }
+
+  .login-panel.is-signup .login-card {
+    transform: none;
+  }
+
+  .dashboard-page {
+    padding: 18px;
+  }
+
+  .dashboard-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

@@ -1,0 +1,43 @@
+.footer-link{
+    color: #cbd5e1;
+    transition: color 180ms ease, transform 180ms ease;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.footer-link:hover{
+    color: #67e8f9;
+    transform: translateX(4px);
+}
+
+.titulo-footer {
+    font-weight: 500;
+    color: aliceblue;
+    font-size: 23px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.redes {
+    color: #cbd5e1;
+    font-size: 18px;
+    transition: color 180ms ease;
+}
+
+.redes:hover {
+    color: #67e8f9;
+}
+
+.instagram-icon {
+    background: linear-gradient(135deg, #f58529 0%, #dd2a7b 45%, #8134af 75%, #515bd4 100%);
+}
+
+.tik-tok {
+    background: linear-gradient(135deg, #00f2ea 0%, #111827 45%, #ff0050 100%);
+}
+
+@media (max-width: 767px) {
+    .footer-link:hover {
+        transform: none;
+    }
+}
