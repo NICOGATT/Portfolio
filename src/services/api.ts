@@ -1,6 +1,6 @@
 import type { ApiError } from '../types/dashboard'
 
-export const API_URL = 'portfolio-backend-production-ae76.up.railway.app'
+export const API_URL = 'https://portfolio-backend-production-ae76.up.railway.app'
 
 export const isUnauthorizedStatus = (status: number) => status === 401 || status === 403
 export const isExpiredTokenStatus = (status: number) => status === 401
