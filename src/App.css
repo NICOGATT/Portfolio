@@ -307,6 +307,19 @@ footer {
     min-height: calc(100svh - 100px);
   }
 
+  .home-main {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .home-main > #home,
+  .home-main > #about,
+  .home-main > #projects,
+  .home-main > #contact {
+    min-height: auto;
+  }
+
   .login-page {
     padding: 18px;
   }
@@ -344,5 +357,11 @@ footer {
   .dashboard-list li {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-main {
+    gap: 24px;
   }
 }

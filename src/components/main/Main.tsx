@@ -26,7 +26,7 @@ function Main() {
   }, [])
 
   return (
-    <main>
+    <main className="home-main">
       <section id="home">
         <div className="hero grid grid-cols-1 md:grid-cols-2 justify-items-center items-center rounded-xl bg-blue-500">
             <div className='biografia'>
