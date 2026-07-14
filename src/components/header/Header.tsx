@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../assets/logo2.png";
+
 import "./header.css";
 
 function Header() {
@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className="header">
         <div className="header-top">
-            <img src={logo} alt="Logo" />
+            <img src="/LogoNicoDev.png" alt="Logo" />
 
             <button
             className={`menu-toggle ${isMenuOpen ? "menu-open" : ""}`}
