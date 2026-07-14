@@ -74,6 +74,18 @@ a{
     }
 }
 
+@media (min-width: 1025px) {
+    .home-main {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .projects-grid {
+        margin-top: 2rem;
+    }
+}
+
 @media (max-width: 640px) {
     .hero {
         padding: 1.5rem 1rem;
