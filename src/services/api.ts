@@ -1,6 +1,6 @@
 import type { ApiError } from '../types/dashboard'
 
-export const API_URL = 'https://api.nicosdev.com.ar'
+export const API_URL = import.meta.env.VITE_API_URL;
 
 export const isUnauthorizedStatus = (status: number) => status === 401 || status === 403
 export const isExpiredTokenStatus = (status: number) => status === 401
