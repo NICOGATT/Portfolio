@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className="header">
         <div className="header-top">
-            <img src="/LogoNicoDev.png" alt="Logo" />
+            <img src="/LogosNicosDev.png" alt="Logo" />
 
             <button
             className={`menu-toggle ${isMenuOpen ? "menu-open" : ""}`}
