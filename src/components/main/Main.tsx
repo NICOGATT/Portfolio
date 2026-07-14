@@ -30,7 +30,7 @@ function Main() {
       <section id="home">
         <div className="hero grid grid-cols-1 md:grid-cols-2 justify-items-center items-center rounded-xl bg-blue-500">
             <div className='biografia'>
-                <h1 className='typing-title titulo'>Hi, I'm Nico Dev</h1>
+                <h1 className='typing-title titulo'>Hi, I'm Nicos Dev</h1>
                 <h2>Software Engineer</h2>
                 <button className='contactMe rounded-xl bg-black transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-black'>
                     <a href="#contact" className='linkContact'>Contact</a>
