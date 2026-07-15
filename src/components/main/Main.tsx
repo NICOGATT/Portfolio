@@ -6,12 +6,18 @@ import { projectService } from '../../services/projectService'
 import type { Proyecto } from '../../types/dashboard'
 import Contact from '../contact/Contact'
 
-function Main() {
-  const [projects, setProjects] = useState<Proyecto[]>([])
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true)
+type MainProps = {
+  initialProjects?: Proyecto[]
+}
+
+function Main({ initialProjects }: MainProps) {
+  const [projects, setProjects] = useState<Proyecto[]>(initialProjects || [])
+  const [isLoadingProjects, setIsLoadingProjects] = useState(!initialProjects)
   const [projectsError, setProjectsError] = useState('')
 
   useEffect(() => {
+    if (initialProjects) return
+
     const loadProjects = async () => {
       try {
         setProjects(await projectService.listPublic())
@@ -23,7 +29,7 @@ function Main() {
     }
 
     loadProjects()
-  }, [])
+  }, [initialProjects])
 
   return (
     <main className="home-main">
@@ -62,8 +68,8 @@ function Main() {
         <div className="projects-header">
           <h2>Projects</h2>
           <p>
-            Una seleccion de proyectos reales, con repositorio, tecnologias e imagenes creadas por mi cuenta para que vean como 
-            es mi forma de trabajar 
+            Una selección de proyectos reales, con repositorio, tecnologías e imágenes creadas por mi cuenta para que vean cómo
+            es mi forma de trabajar.
           </p>
         </div>
 
@@ -76,7 +82,7 @@ function Main() {
         )}
 
         {!isLoadingProjects && !projectsError && projects.length === 0 && (
-          <div className="projects-state">Todavia no hay proyectos publicados.</div>
+          <div className="projects-state">Todavía no hay proyectos publicados.</div>
         )}
 
         {!isLoadingProjects && !projectsError && projects.length > 0 && (

@@ -469,3 +469,21 @@ Build de produccion:
 ```bash
 npm run build
 ```
+
+# Variables de producción y SEO
+
+El build de producción prerenderiza la home y cada proyecto público. Requiere estas variables:
+
+```env
+VITE_API_URL=https://api.ejemplo.com
+SITE_URL=https://nicosdev.com.ar
+```
+
+`VITE_API_URL` debe ser accesible durante el build de Vercel. Si la API no responde, el build falla para evitar publicar páginas o un sitemap incompletos. Cada alta o edición de un proyecto requiere un nuevo deploy.
+
+Comandos disponibles:
+
+```bash
+npm run build:client  # build SPA sin consultar la API
+npm run build         # build de producción con prerender y sitemap
+```

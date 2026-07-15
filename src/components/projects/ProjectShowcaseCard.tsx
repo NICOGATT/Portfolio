@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Proyecto } from '../../types/dashboard'
 import { getProjectCover, getProjectRepo, getProjectTitle } from '../../utils/responses'
+import ResponsiveImage from '../ui/ResponsiveImage'
 
 type ProjectShowcaseCardProps = {
   proyecto: Proyecto
@@ -15,10 +16,16 @@ function ProjectShowcaseCard({ proyecto }: ProjectShowcaseCardProps) {
     <article className="group overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.04]">
       <div className="aspect-[16/8] overflow-hidden bg-slate-900">
         {cover ? (
-          <img
-            alt={title}
+          <ResponsiveImage
+            alt={`${title} - vista previa`}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+            height={320}
+            loading="lazy"
+            sizes="(max-width: 640px) calc(100vw - 32px), 320px"
             src={cover}
+            transform={{ aspectRatio: '2.0', crop: 'fill', gravity: 'auto' }}
+            width={640}
+            widths={[320, 480, 640]}
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-slate-900 text-sm text-slate-500">
@@ -54,7 +61,7 @@ function ProjectShowcaseCard({ proyecto }: ProjectShowcaseCardProps) {
               className="rounded-lg border border-white/10 px-3 py-1.5 text-xs font-semibold text-slate-200 transition hover:bg-white/[0.06] hover:text-white"
               to={`/projects/${proyecto.id}`}
             >
-              Ver mas
+              Ver más
             </Link>
           )}
           {repo && (

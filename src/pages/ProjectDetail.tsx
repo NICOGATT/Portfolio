@@ -2,6 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import type { ImagenProyecto, Proyecto, Tecnologia } from "../types/dashboard";
 import { projectService } from "../services/projectService";
+import ResponsiveImage from "../components/ui/ResponsiveImage";
+import type { ProjectInitialData } from "../types/prerender";
+import PageSeo from "../components/seo/PageSeo";
+import { getCloudinaryImageUrl } from "../utils/cloudinary";
 import {
   getProjectCover,
   getImageUrl,
@@ -9,14 +13,19 @@ import {
   getProjectTitle,
 } from "../utils/responses";
 
-function ProjectDetail() {
+type ProjectDetailProps = {
+  initialData?: ProjectInitialData;
+};
+
+function ProjectDetail({ initialData }: ProjectDetailProps) {
   const { id } = useParams();
   const projectId = id?.trim() || "";
-  const [project, setProject] = useState<Proyecto | null>(null);
-  const [images, setImages] = useState<ImagenProyecto[]>([]);
-  const [technologies, setTechnologies] = useState<Tecnologia[]>([]);
+  const hasInitialData = initialData?.project.id != null && String(initialData.project.id) === projectId;
+  const [project, setProject] = useState<Proyecto | null>(hasInitialData ? initialData!.project : null);
+  const [images, setImages] = useState<ImagenProyecto[]>(hasInitialData ? initialData!.images : []);
+  const [technologies, setTechnologies] = useState<Tecnologia[]>(hasInitialData ? initialData!.technologies : []);
   const [selectedImageUrl, setSelectedImageUrl] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!hasInitialData);
   const [error, setError] = useState("");
 
   const title = project ? getProjectTitle(project) : "Proyecto";
@@ -25,6 +34,10 @@ function ProjectDetail() {
     () => getImageUrl(images[0]?.url) || (project ? getProjectCover(project) : ""),
     [images, project],
   );
+  const canonical = `https://nicosdev.com.ar/projects/${encodeURIComponent(projectId)}`;
+  const socialImage = cover
+    ? getCloudinaryImageUrl(cover, { aspectRatio: "1.91", crop: "fill", gravity: "auto", height: 630, width: 1200 })
+    : "https://nicosdev.com.ar/og-image.webp";
   const collageImages = useMemo(() => {
     const projectImages = images
       .map((image) => ({
@@ -82,10 +95,33 @@ function ProjectDetail() {
       }
     };
 
+    if (hasInitialData) return;
     loadProject();
-  }, [projectId]);
+  }, [hasInitialData, projectId]);
 
   return (
+        <>
+        {project && (
+          <PageSeo
+            canonical={canonical}
+            description={project.descripcion || `Conocé el proyecto ${title} desarrollado por NicosDev.`}
+            image={socialImage}
+            structuredData={{
+              "@context": "https://schema.org",
+              "@type": "CreativeWork",
+              name: title,
+              description: project.descripcion,
+              url: canonical,
+              image: collageImages.map((image) => image.url).length > 0
+                ? collageImages.map((image) => image.url)
+                : [socialImage],
+              ...(repo ? { codeRepository: repo } : {}),
+              ...(project.linkDemo ? { sameAs: project.linkDemo } : {}),
+            }}
+            title={`${title} | NicosDev`}
+            type="article"
+          />
+        )}
         <main className="relative min-h-screen bg-slate-950 px-4 py-8 text-slate-100">
           <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_30%),radial-gradient(circle_at_80%_0%,rgba(59,130,246,0.10),transparent_28%)]" />
 
@@ -178,10 +214,25 @@ function ProjectDetail() {
                               onClick={() => setSelectedImageUrl(image.url)}
                               type="button"
                             >
-                              <img
-                                alt={title}
+                              <ResponsiveImage
+                                alt={`${title} - captura ${index + 1}`}
                                 className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                                fetchPriority={isMainImage ? "high" : "auto"}
+                                height={isMainImage ? 810 : 480}
+                                loading={isMainImage ? "eager" : "lazy"}
+                                sizes={
+                                  isMainImage
+                                    ? "(max-width: 1024px) calc(100vw - 32px), 550px"
+                                    : "(max-width: 1024px) calc(50vw - 24px), 270px"
+                                }
                                 src={image.url}
+                                transform={
+                                  isMainImage
+                                    ? { aspectRatio: "16:9", crop: "fill", gravity: "auto" }
+                                    : { aspectRatio: "4:3", crop: "fill", gravity: "auto" }
+                                }
+                                width={isMainImage ? 1440 : 640}
+                                widths={isMainImage ? [480, 768, 1024, 1440] : [240, 384, 640]}
                               />
                               <span className="absolute inset-0 bg-black/0 transition group-hover:bg-black/20" />
                               {isLastVisible && (
@@ -225,15 +276,21 @@ function ProjectDetail() {
                 >
                   Cerrar
                 </button>
-                <img
-                  alt={title}
+                <ResponsiveImage
+                  alt={`${title} - captura ampliada`}
                   className="max-h-[90vh] w-full object-contain"
+                  height={1080}
+                  sizes="90vw"
                   src={selectedImageUrl}
+                  transform={{ crop: "limit" }}
+                  width={1920}
+                  widths={[960, 1440, 1920]}
                 />
               </div>
             </div>
           )}
         </main>
+        </>
   );
 }
 

@@ -11,13 +11,21 @@ import AdminTechnologiesPage from './features/admin/pages/AdminTechnologiesPage'
 import HomePage from './features/public/pages/HomePage'
 import ProjectDetailPage from './features/public/pages/ProjectDetailPage'
 import ProtectedRoute from './routes/ProtectedRoute'
+import type { InitialData } from './types/prerender'
 
-function App() {
+type AppProps = {
+  initialData?: InitialData
+}
+
+function App({ initialData }: AppProps) {
   return (
     <Routes>
       <Route element={<PublicLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        <Route path="/" element={<HomePage initialData={initialData?.kind === 'home' ? initialData : undefined} />} />
+        <Route
+          path="/projects/:id"
+          element={<ProjectDetailPage initialData={initialData?.kind === 'project' ? initialData : undefined} />}
+        />
       </Route>
 
       <Route path="/admin/login" element={<AdminLoginPage />} />

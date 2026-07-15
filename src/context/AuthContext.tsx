@@ -15,8 +15,10 @@ type AuthContextValue = {
 const AuthContext = createContext<AuthContextValue | null>(null)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [token, setToken] = useState<string | null>(() => getTokenGuardado())
+  const canUseStorage = typeof window !== 'undefined'
+  const [token, setToken] = useState<string | null>(() => canUseStorage ? getTokenGuardado() : null)
   const [user, setUser] = useState<Usuario | null>(() => {
+    if (!canUseStorage) return null
     const storedUser = getUsuarioGuardado()
     return storedUser.email || storedUser.id ? storedUser : null
   })

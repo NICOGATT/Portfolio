@@ -15,7 +15,7 @@ function Header() {
             <button
             className={`menu-toggle ${isMenuOpen ? "menu-open" : ""}`}
             type="button"
-            aria-label={isMenuOpen ? "Cerrar menu" : "Abrir menu"}
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
             aria-controls="main-navigation"
             onClick={() => setIsMenuOpen((currentValue) => !currentValue)}

@@ -14,7 +14,7 @@ function Footer() {
       </div>
 
       <div className="flex flex-col items-center md:items-start">
-        <h3 className="titulo-footer">Links rapidos</h3>
+        <h3 className="titulo-footer">Links rápidos</h3>
         <ul className="grid gap-2">
           <li>
             <a href="#home" className="footer-link">Inicio</a>
