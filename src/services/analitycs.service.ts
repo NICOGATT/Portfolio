@@ -22,7 +22,7 @@ class AnalitycsService {
         return;
         }
 
-        window.dataLayer == window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
         window.gtag = (...args: unknown[]) => {
         window.dataLayer.push(args);
