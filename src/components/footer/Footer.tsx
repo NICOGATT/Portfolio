@@ -1,4 +1,4 @@
-import nicoDevLogo from '../../assets/logo2.png';
+
 import './footer.css';
 import { FaWhatsapp, FaInstagram, FaTiktok, FaLinkedin } from "react-icons/fa";
 
@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="grid grid-cols-1 gap-10 px-6 py-10 text-center md:grid-cols-3 md:text-left">
       <div className="flex flex-col items-center justify-center text-center">
-        <img src={nicoDevLogo} alt="Nico Dev Logo" className="w-40 sm:w-48" />
+        <img src="/LogosNicosDev.png" alt="Nico Dev Logo" className="w-40 sm:w-48" />
         <p className="mt-3 text-slate-100">Full Stack Developer</p>
         <p className="mt-2 max-w-56 text-sm text-slate-300">
           Building scalable web applications & mobile applications
