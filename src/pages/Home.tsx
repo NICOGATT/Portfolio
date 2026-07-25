@@ -2,7 +2,7 @@ import Main from '../components/main/Main'
 import type { HomeInitialData } from '../types/prerender'
 import PageSeo from '../components/seo/PageSeo'
 
-const siteUrl = 'https://nicosdev.com.ar'
+const siteUrl = 'https://www.nicosdev.com.ar'
 const description = 'Desarrollador Full Stack especializado en React, Node.js y Flutter. Desarrollo sitios web, sistemas y aplicaciones para empresas y emprendedores de Argentina.'
 
 type HomeProps = {

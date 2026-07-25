@@ -34,10 +34,10 @@ function ProjectDetail({ initialData }: ProjectDetailProps) {
     () => getImageUrl(images[0]?.url) || (project ? getProjectCover(project) : ""),
     [images, project],
   );
-  const canonical = `https://nicosdev.com.ar/projects/${encodeURIComponent(projectId)}`;
+  const canonical = `https://www.nicosdev.com.ar/projects/${encodeURIComponent(projectId)}`;
   const socialImage = cover
     ? getCloudinaryImageUrl(cover, { aspectRatio: "1.91", crop: "fill", gravity: "auto", height: 630, width: 1200 })
-    : "https://nicosdev.com.ar/og-image.webp";
+    : "https://www.nicosdev.com.ar/og-image.webp";
   const collageImages = useMemo(() => {
     const projectImages = images
       .map((image) => ({
