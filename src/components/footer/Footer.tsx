@@ -35,7 +35,7 @@ function Footer() {
             <FaWhatsapp 
               className="me-2 h-9 w-9 rounded-xl bg-green-500 p-1 text-2xl text-white"
             />
-            <a href="http://wa.me/5491136392183" className="redes" target="_blank" rel="noreferrer">Whatsapp</a>
+            <a href="http://wa.me/5491134259364" className="redes" target="_blank" rel="noreferrer">Whatsapp</a>
           </li>
           <li className="flex items-center">
             <FaInstagram
