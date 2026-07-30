@@ -175,7 +175,7 @@ function ProjectDetail({ initialData }: ProjectDetailProps) {
                     <div className="mt-7 flex flex-wrap gap-3">
                       {repo && (
                         <a
-                          className="rounded-lg bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+                          className="rounded-lg bg-cyan-300 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-200"
                           href={repo}
                           rel="noreferrer"
                           target="_blank"
