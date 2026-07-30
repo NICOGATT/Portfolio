@@ -204,8 +204,8 @@ function ProjectsPage() {
 
       {error && <Alert message={error} title="Error de proyectos" />}
 
-      <div className="grid gap-6 xl:grid-cols-[420px_1fr]">
-        <Panel className="p-5">
+      <div className="grid justify-center gap-6 xl:grid-cols-[minmax(480px,560px)_auto]">
+        <Panel className="min-w-0 p-5">
           <form className="grid gap-4" onSubmit={submitProject}>
             <div>
               <h2 className="text-lg font-semibold text-white">
