@@ -133,7 +133,8 @@ function ProjectsPage() {
 
       const projectPayload = {
         ...formData,
-        usuarioId: String(user.id)
+        usuarioId: String(user.id),
+        estado: 'activo'
       }
       let projectId = editingProject?.id
 

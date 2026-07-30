@@ -67,6 +67,7 @@ export type ProyectoFormData = {
   descripcion: string
   urlRepo: string
   usuarioId: string
+  estado?: string
 }
 
 export type TecnologiaFormData = {
