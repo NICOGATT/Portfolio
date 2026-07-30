@@ -27,7 +27,7 @@ function Home({ initialData }: HomeProps) {
           email: 'contacto@nicosdev.com.ar',
           sameAs: ['https://github.com/NICOGATT'],
         }}
-        title="NicosDev | Desarrollo Web, Apps y Sistemas a Medida en Argentina"
+        title="NicoDev | Desarrollo de Software a Medida"
       />
       <Main initialProjects={initialData?.projects} />
     </>
