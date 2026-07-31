@@ -120,7 +120,7 @@ function Contact() {
         <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-xl bg-black px-4 py-2 text-white transition hover:-translate-y-1 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60"
+            className="rounded-xl bg-black px-4 py-2 text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-60"
         >
             {isSubmitting ? "Enviando..." : "Enviar consulta"}
         </button>

@@ -38,7 +38,7 @@ function Main({ initialProjects }: MainProps) {
             <div className='biografia'>
                 <h1 className='typing-title titulo'>Hi, I'm Nicos Dev</h1>
                 <h2>Software Engineer</h2>
-                <button className='contactMe rounded-xl bg-black transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-black'>
+                <button className='contactMe rounded-xl bg-black transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-black'>
                     <a href="#contact" className='linkContact'>Contact</a>
                 </button>
             </div>
