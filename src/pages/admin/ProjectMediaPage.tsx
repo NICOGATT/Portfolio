@@ -152,14 +152,14 @@ function ProjectMediaPage() {
                 Archivos
                 <input
                   accept="image/*"
-                  className="rounded-lg border border-white/10 bg-slate-950 px-3 py-2.5 text-sm text-white file:mr-3 file:rounded-md file:border-0 file:bg-cyan-300 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-slate-950"
+                  className="rounded-lg border border-white/10 bg-slate-950 px-3 py-2.5 text-sm text-white file:mr-3 file:rounded-md file:border-0 file:bg-cyan-600 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-white"
                   multiple
                   onChange={(event) => setImageFiles(Array.from(event.target.files || []))}
                   type="file"
                 />
                 <span className="text-xs text-slate-500">{imageFiles.length} archivos seleccionados</span>
               </label>
-              <button className="w-fit rounded-lg bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-cyan-200">
+              <button className="w-fit rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-cyan-500">
                 Subir imagenes
               </button>
             </form>
@@ -189,7 +189,7 @@ function ProjectMediaPage() {
                 </p>
               </div>
               <button
-                className="rounded-lg bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-cyan-200"
+                className="rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-cyan-500"
                 onClick={saveTechnologies}
                 type="button"
               >

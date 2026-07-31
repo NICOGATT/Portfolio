@@ -215,7 +215,7 @@ function TechnologiesPage() {
 
             <div className="flex gap-3">
               <button
-                className="rounded-lg bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-cyan-200 disabled:opacity-60"
+                className="rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-cyan-500 disabled:opacity-60"
                 disabled={isSaving}
                 type="submit"
               >

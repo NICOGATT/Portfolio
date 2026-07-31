@@ -117,7 +117,7 @@ function AgregarProyecto({
       </div>
 
       <button
-        className="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-cyan-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         disabled={isSaving}
         type="submit"
       >

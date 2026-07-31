@@ -132,7 +132,7 @@ function Login() {
             <button
               className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
                 mode === 'login'
-                  ? 'bg-cyan-300 text-slate-950'
+                  ? 'bg-cyan-600 text-white'
                   : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
               }`}
               onClick={() => changeMode('login')}
@@ -143,7 +143,7 @@ function Login() {
             <button
               className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
                 mode === 'register'
-                  ? 'bg-cyan-300 text-slate-950'
+                  ? 'bg-cyan-600 text-white'
                   : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
               }`}
               onClick={() => changeMode('register')}
@@ -240,7 +240,7 @@ function Login() {
           )}
 
           <button
-            className="mt-6 w-full rounded-lg bg-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-6 w-full rounded-lg bg-cyan-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-60"
             disabled={isLoading}
             type="submit"
           >

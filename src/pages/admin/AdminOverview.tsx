@@ -151,7 +151,7 @@ function AdminOverview() {
                 aria-pressed={period === days}
                 className={`rounded-md px-3 py-2 text-sm font-semibold transition ${
                   period === days
-                    ? 'bg-cyan-300 text-slate-950'
+                    ? 'bg-cyan-600 text-white'
                     : 'text-slate-400 hover:bg-white/[0.06] hover:text-white'
                 }`}
                 key={days}

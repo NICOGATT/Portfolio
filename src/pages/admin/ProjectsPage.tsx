@@ -245,7 +245,7 @@ function ProjectsPage() {
                 Imagenes
                 <input
                   accept="image/*"
-                  className="rounded-lg border border-white/10 bg-slate-950 px-3 py-2.5 text-sm text-white file:mr-3 file:rounded-md file:border-0 file:bg-cyan-300 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-slate-950"
+                  className="rounded-lg border border-white/10 bg-slate-950 px-3 py-2.5 text-sm text-white file:mr-3 file:rounded-md file:border-0 file:bg-cyan-600 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-white"
                   key={fileInputKey}
                   multiple
                   onChange={(event) => setSelectedImageFiles(Array.from(event.target.files || []))}
@@ -327,7 +327,7 @@ function ProjectsPage() {
 
             <div className="flex gap-3">
               <button
-                className="rounded-lg bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:opacity-60"
+                className="rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-500 disabled:opacity-60"
                 disabled={isSaving}
                 type="submit"
               >

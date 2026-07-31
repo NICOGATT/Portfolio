@@ -16,7 +16,7 @@ function UnauthorizedCard({ message }: { message?: string }) {
             'Tu sesion pudo haber expirado o tu usuario no tiene permisos de administrador. Volve a iniciar sesion con una cuenta admin para continuar.'}
         </p>
         <Link
-          className="mt-7 inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+          className="mt-7 inline-flex w-full items-center justify-center rounded-lg bg-cyan-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-300"
           to="/login"
         >
           Volver al login
