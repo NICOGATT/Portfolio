@@ -52,6 +52,10 @@ function ProjectDetail({ initialData }: ProjectDetailProps) {
   }, [cover, images]);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [projectId]);
+
+  useEffect(() => {
     if (!selectedImageUrl) return;
 
     const closeOnEscape = (event: KeyboardEvent) => {
