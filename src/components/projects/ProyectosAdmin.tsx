@@ -126,7 +126,7 @@ function ProyectosAdmin({
     try {
       const isEditing = Boolean(editingProyecto?.id)
       const endpoint = isEditing
-        ? `${isEditing ? 'PUT' : 'POST'} /api/proyectos/${editingProyecto?.id}`
+        ? `${isEditing ? 'PATCH' : 'POST'} /api/proyectos/${editingProyecto?.id}`
         : 'POST /api/proyectos'
       logAuthRequest({
         endpoint,
@@ -138,7 +138,7 @@ function ProyectosAdmin({
           ? `${API_URL}/api/proyectos/${editingProyecto?.id}`
           : `${API_URL}/api/proyectos`,
         {
-          method: isEditing ? 'PUT' : 'POST',
+          method: isEditing ? 'PATCH' : 'POST',
           headers: jsonAuthHeaders(token),
           body: JSON.stringify(formData)
         }

@@ -36,7 +36,7 @@ export const projectService = {
 
   update: (id: EntityId, payload: ProyectoFormData) =>
     apiRequest<ProjectMutationResponse>(`/api/proyectos/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify(payload)
     }),
 
