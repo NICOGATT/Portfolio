@@ -2,12 +2,14 @@ import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import Alert from '../../components/ui/Alert'
 import PageHeader from '../../components/ui/PageHeader'
 import Panel from '../../components/ui/Panel'
+import { useToast } from '../../context/ToastContext'
 import { projectService } from '../../services/projectService'
 import { technologyService } from '../../services/technologyService'
 import type { EntityId, ImagenProyecto, Proyecto, Tecnologia } from '../../types/dashboard'
 import { getImageUrl, getProjectTitle } from '../../utils/responses'
 
 function ProjectMediaPage() {
+  const { showToast } = useToast()
   const [projects, setProjects] = useState<Proyecto[]>([])
   const [technologies, setTechnologies] = useState<Tecnologia[]>([])
   const [images, setImages] = useState<ImagenProyecto[]>([])
@@ -74,6 +76,7 @@ function ProjectMediaPage() {
       await projectService.addImages(selectedProjectId, imageFiles)
       setImageFiles([])
       setImages(await projectService.listImages(selectedProjectId))
+      showToast('success', 'Imagenes subidas', 'Tus archivos fueron guardados con exito.')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos agregar la imagen.')
     }
@@ -85,6 +88,7 @@ function ProjectMediaPage() {
     try {
       await projectService.removeImage(image.id)
       setImages((current) => current.filter((item) => item.id !== image.id))
+      showToast('success', 'Imagen eliminada', 'El archivo fue eliminado con exito.')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos eliminar la imagen.')
     }
@@ -108,6 +112,7 @@ function ProjectMediaPage() {
     try {
       await projectService.updateTechnologies(selectedProjectId, selectedTechnologyIds)
       setProjectTechnologies(await projectService.listTechnologies(selectedProjectId))
+      showToast('success', 'Tecnologias asociadas', 'Las relaciones fueron guardadas con exito.')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos asociar tecnologias.')
     }

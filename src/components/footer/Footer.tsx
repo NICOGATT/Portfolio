@@ -1,6 +1,6 @@
 
 import './footer.css';
-import { FaWhatsapp, FaInstagram, FaTiktok, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaTiktok, FaLinkedin, FaGithub } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -74,6 +74,19 @@ function Footer() {
               rel="noreferrer"
             >
               Linkedin
+            </a>
+          </li>
+          <li className = "flex items-center">
+            <FaGithub
+              className="me-2 h-9 w-9 rounded-xl bg-black p-1 text-2xl text-white"
+            />
+            <a 
+              href="https://github.com/NICOGATT"
+              className="redes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Github
             </a>
           </li>
         </ul>

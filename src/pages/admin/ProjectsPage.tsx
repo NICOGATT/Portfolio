@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader'
 import Panel from '../../components/ui/Panel'
 import { TextAreaField, TextField } from '../../components/ui/TextField'
 import { useAuth } from '../../context/AuthContext'
+import { useToast } from '../../context/ToastContext'
 import { projectService } from '../../services/projectService'
 import { technologyService } from '../../services/technologyService'
 import type { EntityId, ImagenProyecto, Proyecto, ProyectoFormData, Tecnologia } from '../../types/dashboard'
@@ -18,6 +19,7 @@ const emptyForm: ProyectoFormData = {
 
 function ProjectsPage() {
   const { user } = useAuth()
+  const { showToast } = useToast()
   const [projects, setProjects] = useState<Proyecto[]>([])
   const [technologies, setTechnologies] = useState<Tecnologia[]>([])
   const [editingProject, setEditingProject] = useState<Proyecto | null>(null)
@@ -157,6 +159,11 @@ function ProjectsPage() {
 
       cancelEdit()
       await loadProjects()
+      showToast(
+        'success',
+        isEditing ? 'Proyecto actualizado' : 'Proyecto creado',
+        'Tus cambios fueron guardados con exito.'
+      )
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos guardar el proyecto.')
     } finally {
@@ -190,6 +197,7 @@ function ProjectsPage() {
     try {
       await projectService.remove(project.id)
       setProjects((current) => current.filter((item) => item.id !== project.id))
+      showToast('success', 'Proyecto eliminado', `Se elimino "${getProjectTitle(project)}".`)
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos eliminar el proyecto.')
     }

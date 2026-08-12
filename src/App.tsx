@@ -1,5 +1,6 @@
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { ToastProvider } from './context/ToastContext'
 import AdminLayout from './layouts/AdminLayout'
 import PublicLayout from './layouts/PublicLayout'
 import AdminLoginPage from './features/admin/pages/AdminLoginPage'
@@ -19,7 +20,8 @@ type AppProps = {
 
 function App({ initialData }: AppProps) {
   return (
-    <Routes>
+    <ToastProvider>
+      <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage initialData={initialData?.kind === 'home' ? initialData : undefined} />} />
         <Route
@@ -48,7 +50,8 @@ function App({ initialData }: AppProps) {
       <Route path="/login" element={<Navigate replace to="/admin/login" />} />
       <Route path="/dashboard" element={<Navigate replace to="/admin" />} />
       <Route path="*" element={<Navigate replace to="/" />} />
-    </Routes>
+      </Routes>
+    </ToastProvider>
   )
 }
 

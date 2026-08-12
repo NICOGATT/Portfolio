@@ -3,6 +3,7 @@ import Alert from '../../components/ui/Alert'
 import PageHeader from '../../components/ui/PageHeader'
 import Panel from '../../components/ui/Panel'
 import { TextField } from '../../components/ui/TextField'
+import { useToast } from '../../context/ToastContext'
 import { technologyService } from '../../services/technologyService'
 import type { Tecnologia, TecnologiaFormData } from '../../types/dashboard'
 
@@ -15,6 +16,7 @@ const emptyForm: TecnologiaFormData = {
 const maxIconSize = 5 * 1024 * 1024
 
 function TechnologiesPage() {
+  const { showToast } = useToast()
   const [technologies, setTechnologies] = useState<Tecnologia[]>([])
   const [editingTechnology, setEditingTechnology] = useState<Tecnologia | null>(null)
   const [formData, setFormData] = useState<TecnologiaFormData>(emptyForm)
@@ -118,6 +120,11 @@ function TechnologiesPage() {
       }
       cancelEdit()
       await loadTechnologies()
+      showToast(
+        'success',
+        editingTechnology ? 'Tecnologia actualizada' : 'Tecnologia creada',
+        'Tus cambios fueron guardados con exito.'
+      )
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos guardar la tecnologia.')
     } finally {
@@ -132,6 +139,7 @@ function TechnologiesPage() {
     try {
       await technologyService.remove(technology.id)
       setTechnologies((current) => current.filter((item) => item.id !== technology.id))
+      showToast('success', 'Tecnologia eliminada', `Se elimino "${technology.nombre}".`)
     } catch (error) {
       setError(error instanceof Error ? error.message : 'No pudimos eliminar la tecnologia.')
     }
